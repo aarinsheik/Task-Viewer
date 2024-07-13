@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="h-100 w-100 min-h-screen bg-zinc-900">
+        <div class="form p-10">
+            <form class="flex flex-col justify-center items-center" action="/create" method="post">
+                <input name='title'  class="block px-5 py-2 w-full rounded-md outline-none bg-zinc-800 text-white" type="text" placeholder="Title of Task"/>
+                <textarea  name='details' class="block mt-4 px-5 py-3 w-full rounded-md outline-none bg-zinc-800 resize-none text-white" placeholder="Task details"></textarea>
+                <input class="mt-4 w-40 text-white bg-blue-600 px-5 py-3 rounded-sm" type="submit" value="Create Task"></input>
+            </form>
+        </div>
+        <hr/>
+        <div class="tasks p-10 flex gap-3 flex-wrap">
+
+            <% if( files.length>0 ){ %>
+                <% files.forEach((val)=>{ %>
+
+                    <div class="task w-80 px-3 py-4 bg-zinc-800 rounded-md">
+                        <h1 class="text-white text-[1.5rem] px-2 overflow-hidden mb-3"><%= val.slice(0,-4) %></h1>
+                        <a href="/file/<%= val %>" class="text-blue-500 px-2">Read more...</a>
+                        <a href="/edit/<%= val %>" class="inline-block float-end text-green-500 px-3">Edit</a>
+                    </div>
+
+                <% }) %>
+            <% } else{ %>
+                <h3 class="text-zinc-300">No Task Yet..</h3>
+            <% } %>
+            
+        </div>
+    </div>
+</body>
+</html>
