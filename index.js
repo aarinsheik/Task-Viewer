@@ -34,7 +34,7 @@ app.get('/complete/:filename' , (req, res)=>{                                   
     })
 })
 
-app.post('/create', (req , res)=>{                      // This route is for getting the task-data from index.ejs that was sent using 'POST' method by frontend
+app.post('/create', (req , res)=>{                      // This route is for getting the task-data from homepage.ejs that was sent using 'POST' method by frontend
     
     let tit_ar = req.body.title.split(' ')              // removing space in the name and making the first character into uppercase
     tit_ar = tit_ar.map( (val)=>{
