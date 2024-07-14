@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+    <div class="form p-10 h-100 w-100 min-h-screen bg-zinc-900">
+        <form class="flex flex-col justify-center items-center" action="/edit" method="post">
+            <input name="prev_title" class="hidden" value="<%= file_name.slice(0,-4) %>">
+            <input name='edited_title'  class="block px-5 py-2 w-full rounded-md outline-none bg-zinc-800 text-white" type="text" value="<%= file_name.slice(0,-4) %>"/>
+            <textarea  name='edited_details' class="block mt-4 px-5 py-3 w-full h-44 rounded-md outline-none bg-zinc-800 resize-none text-white"><%= file_details %></textarea>
+            <input class="mt-4 w-40 text-black text-lg bg-yellow-500 px-5 py-3 rounded-sm" type="submit" value="Edit Task"></input>
+        </form>
+    </div>
 </body>
 </html>

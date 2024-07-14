@@ -11,7 +11,7 @@
         <div class="form p-10">
             <form class="flex flex-col justify-center items-center" action="/create" method="post">
                 <input name='title'  class="block px-5 py-2 w-full rounded-md outline-none bg-zinc-800 text-white" type="text" placeholder="Title of Task"/>
-                <textarea  name='details' class="block mt-4 px-5 py-3 w-full rounded-md outline-none bg-zinc-800 resize-none text-white" placeholder="Task details"></textarea>
+                <textarea  name='details' class="block mt-4 px-5 py-3 w-full h-32 rounded-md outline-none bg-zinc-800 resize-none text-white" placeholder="Task details"></textarea>
                 <input class="mt-4 w-40 text-white bg-blue-600 px-5 py-3 rounded-sm" type="submit" value="Create Task"></input>
             </form>
         </div>
@@ -22,9 +22,12 @@
                 <% files.forEach((val)=>{ %>
 
                     <div class="task w-80 px-3 py-4 bg-zinc-800 rounded-md">
-                        <h1 class="text-white text-[1.5rem] px-2 overflow-hidden mb-3"><%= val.slice(0,-4) %></h1>
-                        <a href="/file/<%= val %>" class="text-blue-500 px-2">Read more...</a>
-                        <a href="/edit/<%= val %>" class="inline-block float-end text-green-500 px-3">Edit</a>
+                        <h1 class="text-white text-[1.5rem] px-2 overflow-hidden mb-5"><%= val.slice(0,-4) %></h1>
+                        <div class="options flex w-full justify-between">
+                            <a href="/file/<%= val %>" class="text-blue-500 px-2">Read more</a>
+                            <a href="/edit/<%= val %>" class="text-yellow-500 px-3">Edit</a>
+                            <a href="/complete/<%= val %>" class="text-green-500 px-2">completed</a>
+                        </div>
                     </div>
 
                 <% }) %>
