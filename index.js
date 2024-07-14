@@ -11,7 +11,7 @@ app.set('view engine', 'ejs')
 app.get('/' , (req, res )=>{
     fs.readdir(`./files`,(err,task_files)=>{              // we are using Node.JS file-system to read the task files
         console.log (`task files are :`, task_files)
-        res.render('homepage',{ files : task_files})      // we are sending the text-files(Task-data) to index.ejs page to display the tasks
+        res.render('homepage',{ files : task_files})      // we are sending the text-files(Task-data) to homepage.ejs page to display the tasks
     })
 })
 
